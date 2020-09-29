@@ -28,7 +28,7 @@
                     <td><a href="show.php?id=<?php echo $room['id'];?>">SHOW</a></td>
                     <td><a href="">UPDATE</a></td>
                     <td>
-                        <form action="" method="post">
+                        <form action="partials/05-delete/server.php" method="post">
                             <input class="btn btn-danger" type="submit" value="DELETE">
                             <input type="hidden" name="id" value="<?php echo $room['id'];?>">
                         </form>
