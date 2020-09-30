@@ -8,29 +8,23 @@
     }
 
     // se l'id è stato passato faccio query sql sulla base dell'id e restituisco risultato
+    $sql = "DELETE FROM stanze WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i",$id);
+    
     $id = $_POST['id'];
-    $sql = "DELETE FROM stanze WHERE id = $id";
-    $result = $conn->query($sql);
-    if ($result) {
-        $messaggio='OK CANCELLATO';
+    $stmt->execute();
+
+    if ($stmt && $stmt->affected_rows >0) {
+        header("Location: $basepath/index.php?id=$id&action=delete&alert=1");
+    } elseif ($stmt && $stmt->affected_rows ==0) {
+        header("Location: $basepath/index.php?id=$id&action=delete&alert=0");
     } else {
-        $messaggio='NON HO CANCELLATO NIENTE';
+        header("Location: $basepath/index.php?id=$id&action=delete&alert=-1");
     }
-    header( "refresh:3;url=../../index.php" );
+
+    $conn->close();
+
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message</title>
-    <link rel="stylesheet" href="../../dist/app.css">
-</head>
-<body>
-    <div class="container">
-        <p><?php echo $messaggio ;?></p>
-        <p>Se il tuo browser non supporta il redirect clicca <a class="btn btn-danger" href="../../index.php">qui</a></p>
-    </div>
-</body>
-</html>
+

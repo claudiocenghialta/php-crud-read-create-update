@@ -15,4 +15,7 @@
     } else {
         echo 'errore query';
     }
+
+    $conn->close();
+
 ?>
