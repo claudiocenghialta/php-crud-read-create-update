@@ -19,6 +19,13 @@
                     $messaggio= "Non c'erano dati da eliminare";
                 } elseif ($getAlert==-1) {
                     $messaggio= "Attenzione, la cancellazione non è andata a buon fine, controllare le relazioni con altre tabelle"; }
+            } elseif ($getAction=='create') {
+                if ($getAlert==1) {
+                    $messaggio= "La creazione della stanza con id $getId è andato a buon fine";
+                } elseif ($getAlert==0) {
+                    $messaggio= "Non c'erano dati da inserire";
+                } elseif ($getAlert==-1) {
+                    $messaggio= "Attenzione, la creazione non è andata a buon fine, controllare i dati inseriti"; }
             }
             ?>
         <div class="alert alert-warning">

@@ -18,8 +18,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ml-auto">
                 
-                    <a class="nav-link" href="index.php">Stanze<span class="sr-only">(current)</span></a>
-                
+                    <a class="nav-link" href="index.php">Elenco stanze<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="create.php">Nuova stanza<span class="sr-only">(current)</span></a>
                 </div>
             </div>
         </nav>
