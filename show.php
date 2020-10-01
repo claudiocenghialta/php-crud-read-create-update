@@ -15,7 +15,7 @@
             <li class="list-group-item">Numero letti: <?php echo $row['beds'];?></li>
         </ul>
         <div class="d-flex justify-content-around m-3">
-            <a  class="btn btn-primary" href="index.php?id=<?php echo $row['id'];?>">BACK</a>
+            <a  class="btn btn-primary" href="index.php">BACK</a>
             <a  class="btn btn-warning" href="update.php?id=<?php echo $row['id'];?>">UPDATE</a>
             <form action="partials/05-delete/server.php" method="post">
                 <input class="btn btn-danger" type="submit" value="DELETE">
